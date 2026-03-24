@@ -10,9 +10,13 @@ export default async function handler(req, res) {
         });
 
         const data = await response.json();
-        res.status(200).json(data);
+
+        console.log("Respuesta OpenRouter:", data); // 👈 clave
+
+        return res.status(response.status).json(data);
 
     } catch (error) {
-        res.status(500).json({ error: 'Error en servidor' });
+        console.error("Error backend:", error);
+        return res.status(500).json({ error: { message: "Error interno" } });
     }
 }
