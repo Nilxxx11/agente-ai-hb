@@ -194,9 +194,7 @@ async function processAIResponse() {
 
     try {
         // Verificar API key
-        if (!window.OPENROUTER_API_KEY) {
-            throw new Error('API key no configurada. Por favor, configura tu API key de OpenRouter en config.js');
-        }
+      
 
         // Preparar mensajes para la API
         const apiMessages = [
@@ -205,7 +203,7 @@ async function processAIResponse() {
         ];
 
         // Llamar a OpenRouter API
-        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${window.OPENROUTER_API_KEY}`,
