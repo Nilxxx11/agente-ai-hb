@@ -194,7 +194,6 @@ async function processAIResponse() {
 
     try {
         // Verificar API key
-console.log("Respuesta completa:", data);
 
         // Preparar mensajes para la API
         const apiMessages = [
@@ -234,7 +233,7 @@ if (!data.choices || !data.choices[0]) {
     console.error("Respuesta inválida:", data);
     throw new Error(data?.error?.message || "La API no devolvió choices");
 }
-
+console.log("Respuesta completa:", data);
 const aiResponse = data.choices[0].message.content;
 
         // Agregar respuesta del bot
